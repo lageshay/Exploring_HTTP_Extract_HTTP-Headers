@@ -1,0 +1,23 @@
+#Import the socket module
+import socket
+
+#Create the socket (create the connection point) 
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Connect to 'data.pr4e.org' Host and Port 80
+mysock.connect(('data.pr4e.org', 80))
+#Request the specific page and ‘encode’ to prepare for sending
+cmd = 'GET http://data.pr4e.org/intro-short.txt HTTP/1.0\r\n\r\n'.encode()
+#Send the request
+mysock.send(cmd)
+
+#Loop through the data
+while True:
+    data = mysock.recv(512)
+    #If the data is < 1 character in length (end of the file), end the loop
+    if len(data) < 1:
+        break
+    #Decode and print the data received
+    print(data.decode(),end='')
+
+#Close the connection
+mysock.close()
