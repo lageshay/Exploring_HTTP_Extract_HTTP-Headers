@@ -1,0 +1,2 @@
+# Exploring_HTTP_Extract_HTTP-Headers
+Assignment: Retrieve the following document using the HTTP protocol in a way that you can examine the HTTP Response headers: http://data.pr4e.org/intro-short.txt. Modify the socket1.py program to retrieve the above URL and print out the headers and data. Use the telnet program as shown in lecture. From 'Python for Everybody' University of Michigan course via Coursera.
